@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const flightController = require('../../controllers/flight-controller')
 
-router.post('/booking', flightController.create);
+const FlightController = new flightController();
+
+router.post('/booking', FlightController.create);
+router.post('/publish', FlightController.sendMessageToQueue);
 
 module.exports = router;

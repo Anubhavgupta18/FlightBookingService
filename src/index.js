@@ -10,7 +10,8 @@ const createAndStartServer = () => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.use('/api', ApiRoutes);
+    app.use('/bookingService/api', ApiRoutes);
+    
 
     app.listen(PORT,() => {
         console.log(`Server started on PORT: ${PORT}`);

@@ -8,19 +8,6 @@ class flightController{
     constructor() {
         
     }
-
-    async sendMessageToQueue(req,res) {
-        try {
-            const channel = await createChannel();
-            const data = { message: 'data' };
-            await publishMessage(channel, REMINDER_BINDING_KEY,JSON.stringify(data));
-            return res.status(200).json({
-                message: 'Successfully published the message'
-            });
-        } catch (error) {
-            throw error;
-        }
-    }
     async create (req, res) {
         try {
             const response = await BookingService.createBooking(req.body);
